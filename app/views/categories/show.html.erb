@@ -1,0 +1,17 @@
+<%= render partial: "categories_navbar"%>
+
+ <table class="table table-success table-striped">
+     <tr> 
+     <th> </th>
+     <th> Products </th>
+     <th> Quantity </th>
+     </tr>
+ <% @category.products.each_with_index do |cat,index|%>
+    <tr>
+    <td> <%=index+1%></td>
+    <td><%=link_to cat.name, user_product_path(cat.user_id, cat.id)%></td>
+    <td> <%= cat.quantity%> </td>
+    </tr>
+  <%end%>
+  </table>
+</ul>

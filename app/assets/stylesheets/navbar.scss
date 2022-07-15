@@ -1,0 +1,11 @@
+.navbar{
+    background-color: #a8dadc;
+}
+.content-list{
+    margin-top: 2em;
+    text-align: center;
+    height: 3em;
+    &:hover{
+        background-color:  #ffcdb2;
+    }
+}

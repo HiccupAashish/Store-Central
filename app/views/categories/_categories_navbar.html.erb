@@ -1,0 +1,9 @@
+<ul class="nav nav-tabs">
+ <% current_user.categories.each do |cat|%>
+  <li class="nav-item">
+    <%= link_to cat.name , user_category_path(cat.user_id, cat.id),class:"nav-link"%>
+    <%= link_to "X", user_category_path(current_user.id, cat.id), method: :delete, 
+        data: {confirm: "Are you sure you want to permanantly delete it ?"} %>
+  </li>
+  <%end%>
+</ul>

@@ -1,0 +1,5 @@
+<% @history.each do |history|%>
+ <%= history.amount%>
+<%= history.updated_at.strftime('%a, %d %b %Y %H:%M:%S')%>
+ </br>
+<%end%>
