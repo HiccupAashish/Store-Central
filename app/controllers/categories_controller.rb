@@ -9,11 +9,11 @@ class CategoriesController < ApplicationController
        @category=current_user.categories.find(params[:id])     
     end
 
-    def destroy
-        @category= Category.find(params[:id])
-        @category.destroy
-        redirect_to user_categories_path(current_user.id)
-    end
+    # def destroy
+    #     @category= Category.find(params[:id])
+    #     @category.destroy
+    #     redirect_to user_categories_path(current_user.id)
+    # end
 
 
 end

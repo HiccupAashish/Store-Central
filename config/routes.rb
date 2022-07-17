@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :employees
 
   resources :users do
+    get 'custom/products/new'=> "products#new_custom_product"
+    # post 'custom/products/new/:id'=> "products#create_custom_product"
+    get 'custom/products' => "products#custom_products"
     get 'home'=> "main#home_page"
     get 'cart' => "main#cart"
     post 'add_to_cart/:id' => "main#add_to_cart"

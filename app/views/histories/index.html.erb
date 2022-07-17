@@ -1,5 +1,17 @@
-<% @history.each do |history|%>
- <%= history.amount%>
-<%= history.updated_at.strftime('%a, %d %b %Y %H:%M:%S')%>
- </br>
-<%end%>
+<table class="table table-hover">
+ <thead class="table-success">
+    <td> Date </td>
+    <td> Total Price </td>
+    <td> No.of Item Sold </td>
+    <td> Profit </td>   
+ </thead>
+    <% @history.each do |history|%>
+     <tr class="table-success">
+       <td> <%= history.updated_at.strftime('%a, %d %b %Y %H:%M:%S')%> </td>
+       <td> <%= history.amount%> </td>
+       <td> <%= history.item_sold%> </td>
+       <td> <%= history.gross_profit%> </td>
+     </tr>
+     
+    <%end%>
+</table>

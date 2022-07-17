@@ -20,7 +20,7 @@
     </thead>
     <tbody>
         <% @products.each_with_index  do |product,index|%>
-          <% if product.custom == false %>
+ 
             <tr>
             <td> <%= index+1 %> </td>
             <td> <%= link_to product.name, user_product_path(product.user_id, product.id) %> </td>
@@ -34,11 +34,11 @@
             data: {confirm: "Are you sure you want to permanantly delete it ?"} %>
             </td>  
             <td> <%= link_to "Edit", edit_user_product_path(current_user.id, product.id) %></td>  
-            </tr>
-          <% end %>
+            </tr> 
+        
         <% end%>
 
 </tbody>
 </table>
 </br>
-<%= link_to "Add Product", new_user_product_path(current_user.id), class:"btn btn-danger" %>
+<%= link_to "Add Product", user_custom_products_new_path(current_user.id), class:"btn btn-danger" %>

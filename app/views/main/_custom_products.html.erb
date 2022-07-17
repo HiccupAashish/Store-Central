@@ -1,0 +1,21 @@
+
+    <% current_user.products.all.each do |product|%>
+        <%if product.custom==true%>
+         <div class= "custom_products">
+          
+          <%=link_to product.name, "add_to_cart/#{product.id}", method: :post%>
+           
+            
+            <%= number_to_currency(product.price)%>
+           
+         </div>
+        <%end%>
+    <%end%>
+</div>
+
+<div class="add_custom_products">
+<a class="btn" href="
+<%= user_custom_products_new_path(current_user) %>
+"><i class="bi bi-plus"></i> </a>
+
+</div>

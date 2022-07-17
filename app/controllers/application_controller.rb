@@ -12,10 +12,14 @@ class ApplicationController < ActionController::Base
     end
     
     def total_price
-        # raise session[:cart].inspect
-
-        total_price = session[:cart].reduce(0) do | sum,product|
+        total_price = current_cart.reduce(0) do | sum,product|
              sum + (current_user.products.find(product.to_i)).price
+        end
+    end
+
+    def total_profit
+        total_profit = current_cart.reduce(0) do | sum,product|
+             sum + (current_user.products.find(product.to_i)).profit
         end
     end
 

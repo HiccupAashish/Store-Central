@@ -10,6 +10,7 @@ before_action :is_signed_in?
 
     def new
         @product= Product.new
+        @product.custom =false
     end
 
     def create
@@ -40,19 +41,38 @@ before_action :is_signed_in?
     def destroy
       # raise params.inspect
      @product= Product.find(params[:id])
+     current_cart.delete(params[:id])
+    #  if current_user.pr
       @product.destroy
       redirect_to user_products_path
     end
 
     def show
       @product= current_user.products.find(params[:id])
+      # @product= current_user.products.find(params[:id]).categories
+      # @cat=@product.total_product
+      # raise @cat.inspect
+      # raise @product.inspect
       # raise @product.brought_price.inspect
     end
+
+    def new_custom_product
+      @product=Product.new
+      @product.custom =true
+      
+  end
+
+  def custom_products
+    # @products=current_user.products.where(custom: true)
+    @search= current_user.products.where(custom: true).ransack(params[:q])
+      @products=@search.result
+  end
+
 
     private
 
     def product_entry
-        params.require(:product).permit([:user_id,:name,:brought_price, :quantity,:price, category_ids:[], categories: [:name, :user_id] ])
+        params.require(:product).permit([:user_id,:name,:brought_price, :quantity,:price,:custom, category_ids:[], categories: [:name, :user_id] ])
     end
  
 end

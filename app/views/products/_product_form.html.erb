@@ -18,6 +18,8 @@
   <%= form.text_field :brought_price %>
      </br>
      </br>
+  <%= form.hidden_field :custom, :value => product.custom %>
+   
   <strong> Barcode: </strong>
   <%= form.text_field :barcode %>
      </br>
@@ -39,4 +41,4 @@
 <% end %>
 </br>
 </br>
-<%# <%= link_to "Main menu", , class:"btn btn-success"%> %>
+<%= link_to "Main menu",user_products_path(current_user) , class:"btn btn-success"%>

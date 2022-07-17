@@ -1,0 +1,10 @@
+<h1> Products </h1>
+ <div class="Product_type">
+    <div class= "non_custom">
+        <%= link_to "GST Items", user_products_path(current_user)%>
+    </div>
+    <div class= "custom">
+        <%= link_to "Custom Products",user_custom_products_path(current_user)%>
+    </div>
+ </div>
+ </br>
