@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  resources :comments
   resources :histories
+  resources :posts
   # resources :product_categories
   resources :categories
   resources :products
   root "main#index"
+  get "posts" => "posts#index"
   resources :users
   resources :employees
 
@@ -17,7 +20,9 @@ Rails.application.routes.draw do
     delete 'remove_from_cart/:id' => "main#remove_from_cart"
     get 'checkout' => "histories#add_to_history"
     post 'checkout' => "histories#add_to_history"
+    resources :posts , except: [:index]
     resources :products
+    resources :comments
     resources :categories
     resources :employees
     resources :histories

@@ -1,0 +1,12 @@
+<div class= "show_post">
+ <%= @post.post %>
+ <% unless @post.comments.empty?%>
+           <% @post.comments.map do |comment|%>
+              <div class="box1">
+                <%= comment.comment%>
+              </div>
+              <%end%>
+<%end%>
+</div>
+ </br>
+<%= render "comments/form", comment: @comment%>

@@ -22,4 +22,5 @@ class User < ApplicationRecord
     has_many :categories
     has_many :employees
     has_many :histories
+    has_many :posts
 end

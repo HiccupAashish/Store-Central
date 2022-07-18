@@ -23,4 +23,8 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def profit_revenue
+        
+    end
+
 end

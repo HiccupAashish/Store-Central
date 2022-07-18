@@ -11,8 +11,14 @@ class HistoriesController < ApplicationController
         @history.gross_profit= total_profit
         @history.save
         current_cart.clear
-        
         redirect_to user_home_path(current_user)
+    end
+
+    def destroy
+     
+        @history=History.find(params[:id])
+        @history.destroy
+        redirect_to user_histories_path(current_user)
     end
 
 end

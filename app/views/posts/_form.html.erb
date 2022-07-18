@@ -1,0 +1,8 @@
+<%= form_for @post do|form|%>
+        <strong> Post: </strong>
+        <%=form.text_field :post, class:"post_form"%>
+        <%= form.hidden_field :user_id, :value => current_user.id %>
+        </br>
+        </br>
+        <%= form.submit%>
+    <%end%>
