@@ -23,12 +23,21 @@ class MainController < ApplicationController
 
         def add_to_cart
             @product= current_user.products.find(params[:id])
-            current_cart << @product.id
+            unless @product.quantity==0
+                @product.quantity = ((@product.quantity).to_i) - 1
+                @product.save
+                current_cart << @product.id   
+            else
+                flash[:alert]= "Sorry out of stock"
+            end
             redirect_to user_home_path(current_user)
+           
         end
         
         def remove_from_cart
             update_cart=current_user.products.find(params[:id])
+            update_cart.quantity = ((update_cart.quantity).to_i) +1
+            update_cart.save
             current_cart.delete(update_cart.id)
             redirect_to user_home_path(current_user)
         end

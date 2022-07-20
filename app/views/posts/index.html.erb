@@ -8,11 +8,15 @@
            <% post.comments.map do |comment|%>
               <div class="comment_box">
                 <%= comment.comment%>
+                <%if current_user.comments.include?comment%>
+                  <%= link_to "", user_comment_path(current_user.id,comment.id),method: :delete,class:"bi bi-x"%> 
+                 <%end%>
               </div>
           <%end%>
      
      <%end%>
      <%if current_user.posts.include?post%>
+     <div class="menu">
        <div class="btn-group">
          <button class="btn btn-secondary " type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
             <i class="bi bi-three-dots-vertical"></i>
@@ -34,6 +38,7 @@
     <a href="<%=user_post_path(current_user,post.id)%>">
     <i class="bi bi-plus"></i>
      </a>
+     </div>
     </div>
 <%end%>
  

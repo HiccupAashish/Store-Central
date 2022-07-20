@@ -10,11 +10,11 @@
   <%= form.text_field :quantity %>
      </br>
      </br>
-  <strong> Price: </strong>
+  <strong> Selling Price: </strong>
   <%= form.text_field :price %>
      </br>
      </br>
- <strong> Brought Price: </strong>
+ <strong> Bought Price: </strong>
   <%= form.text_field :brought_price %>
      </br>
      </br>
@@ -26,19 +26,16 @@
      </br>
    <strong> Category: </strong>
    <%= form.collection_check_boxes :category_ids, current_user.categories.order(:name), :id, :name%>
-    <button> New Category </button>
-    <div class="category-form">
-        <%= form.fields_for :categories do |cat|%>
-          <%= cat.text_field :name %>
-              </br>
-          <%= cat.hidden_field :user_id, :value => current_user.id %>
-
-        <%end%>
+    <button id="addCategory"> Create Category </button>
+    <div class="nested_form">
+      <%= form.fields_for :categories do |cat| %>
+        <%= cat.hidden_field :user_id, :value => current_user.id %> 
+      <%end%> 
     </div>
-      </br>
-      </br>
+       </br>
   <%= form.submit %>
 <% end %>
 </br>
 </br>
 <%= link_to "Main menu",user_products_path(current_user) , class:"btn btn-success"%>
+<%= javascript_pack_tag 'product', 'data-turbolinks-track': 'reload' %>

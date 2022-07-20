@@ -7,8 +7,12 @@ class PasswordResetsController < ApplicationController
       @user = User.find_by(email: params[:email].downcase)
       if @user
         PasswordMailer.with(user: @user).reset.deliver_now  
-      end
+        
       redirect_to root_path, notice: "If an account with an email is found. Check you email Cunt"
+      else
+        raise params.inspect
+      end
+
     end
   
     def edit

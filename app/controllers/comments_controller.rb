@@ -8,12 +8,18 @@ class CommentsController < ApplicationController
             redirect_to posts_path
           else
             format.html { render :new, status: :unprocessable_entity }
-          end
-        
-      end
+          end 
+    end
+
+    def destroy
+      @comment=Comment.find(params[:id])
+      current_user.comments.delete(@comment)
+      @comment.destroy
+      redirect_to posts_path
+    end
     
     private
     def comment_params
-        params.require(:comment).permit(:post_id, :comment)
+        params.require(:comment).permit(:post_id, :comment,:user_id)
     end
 end

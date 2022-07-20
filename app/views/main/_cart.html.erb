@@ -10,10 +10,8 @@
       <td> <%= current_user.products.find(cart).name %></td>
       <td><%= current_user.products.find(cart).price %></td>
       <td> 
-         <%= link_to "remove_from_cart/#{current_user.products.find(cart).id}", :method => :delete  do%> 
-          <i class="bi bi-trash3">
-          
-          <%end%>
+         <%= link_to "" ,"remove_from_cart/#{current_user.products.find(cart).id}", :method => :delete ,class:"bi bi-trash3"%> 
+ 
       </td>
     </tr>
   <%end%>

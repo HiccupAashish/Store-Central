@@ -1,12 +1,15 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.post_form{
+body{
+    background-color: #8e9aaf;
+}.post_form{
     width:50%;
     height: 20em;
-    background-color: #e3d5ca;
+    background-color: #83c5be;
     color: black;
     margin-top: 5em;
+    
     margin-left: 3em;
     border: none;
     border-radius: 3em;
@@ -16,11 +19,13 @@ a{
     color: black;
 }
 .post_box{
-    background-color: #84a98c;
-    margin-top: 1em;
+    margin-top: 5em;
+    background-color: #83c5be   ;
+    // margin-top: 1em;
     padding-top: 5px;
-    // flex-wrap: wrap;
-    // overflow: hidden;
+    padding-left: 20px;
+    flex-wrap: wrap;
+    overflow: hidden;
     .btn-group{
         float: top;
         padding-right: 7px;
@@ -30,12 +35,21 @@ a{
     .comment_box{
         margin-top: 5px;
         border-radius: 1em;
-        background-color: #8e9aaf;
+        padding-left: 10px;
+        background-color: #f9dcc4;
         width:80%;
         float: bottom;
         text-align: left;
     }
 }
-.bi{
+.menu{
     float: right;
+}
+.btn-secondary{
+    float: right;
+    background-color:  transparent;
+    border: none;
+    &:hover {
+        background-color:  transparent;
+    }
 }

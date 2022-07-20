@@ -18,9 +18,10 @@ class User < ApplicationRecord
 
     validates :password, presence: true, length: { minimum: 3 }
 
-    has_many :products  
-    has_many :categories
+    has_many :products ,:dependent => :destroy 
+    has_many :categories,:dependent => :destroy
     has_many :employees
     has_many :histories
-    has_many :posts
+    has_many :posts,:dependent => :destroy
+    has_many :comments,:dependent => :destroy
 end

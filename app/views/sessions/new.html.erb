@@ -1,4 +1,5 @@
-<h1> Welcome to my Website </h1>
+
+
 
 <h1>Log in</h1>
 
@@ -12,12 +13,19 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
           </br>
+          
+          <div class="Login-box">
+          <%= f.submit "Log in", class: "btn btn-primary" %>
       <%= link_to "Forgot password ?", password_reset_path%>
+      <%= link_to('Log in with facebook', '/auth/facebook', method: :post, class:"facebook_box") %>
+      <%= link_to('Log in with Google', '/auth/google_oauth2', method: :post,class:"google_box") %>
 
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      
+      
     <% end %>
 
 
     <p>New user? <%= link_to "Sign up now!", new_user_path %></p>
+    </div>
   </div>
 </div>

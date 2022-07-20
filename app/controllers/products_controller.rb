@@ -5,7 +5,6 @@ before_action :is_signed_in?
     def index
       @search= current_user.products.ransack(params[:q])
       @products=@search.result
-      # @products= @current_user.products.all
     end
 
     def new
@@ -14,7 +13,6 @@ before_action :is_signed_in?
     end
 
     def create
-      # raise params.inspect
       @product = Product.create(product_entry)
       profit=((@product.price).to_i) - ((@product.brought_price).to_i)
       @product.profit = profit
@@ -39,21 +37,15 @@ before_action :is_signed_in?
     end
 
     def destroy
-      # raise params.inspect
      @product= Product.find(params[:id])
      current_cart.delete(params[:id])
-    #  if current_user.pr
-      @product.destroy
+     @product.categories.clear 
+     @product.delete
       redirect_to user_products_path
     end
 
     def show
       @product= current_user.products.find(params[:id])
-      # @product= current_user.products.find(params[:id]).categories
-      # @cat=@product.total_product
-      # raise @cat.inspect
-      # raise @product.inspect
-      # raise @product.brought_price.inspect
     end
 
     def new_custom_product
@@ -63,7 +55,6 @@ before_action :is_signed_in?
   end
 
   def custom_products
-    # @products=current_user.products.where(custom: true)
     @search= current_user.products.where(custom: true).ransack(params[:q])
       @products=@search.result
   end
@@ -72,7 +63,8 @@ before_action :is_signed_in?
     private
 
     def product_entry
-        params.require(:product).permit([:user_id,:name,:brought_price, :quantity,:price,:custom, category_ids:[], categories: [:name, :user_id] ])
+      # raise params.inspect
+        params.require(:product).permit([:user_id,:name,:brought_price, :quantity,:price,:custom, category_ids:[], :categories => [ :user_id, :name] ])
     end
  
 end

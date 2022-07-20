@@ -1,0 +1,32 @@
+body{
+    background-color: #83c5be;
+}
+
+h1{
+    color: black;
+    padding-top: 40px;
+}
+.row{
+    min-height: 80%;
+    margin: auto;
+    width: 100%;
+    justify-content: center;
+    .facebook_box{
+        justify-content: center;
+        align-items: center;
+        background-color: #457b9d;
+    }
+    .google_box{
+        background-color: #fbc4ab;
+    }
+    .Login-box{
+        align-items: center;
+        text-align: center;
+        display: grid;
+        justify-content: center;
+        gap: 1em;
+        align-items: center;
+        text-decoration: none;
+        text-decoration-line: none;
+    }
+}
