@@ -1,7 +1,4 @@
 class User < ApplicationRecord
- 
-
-    include UsersHelper
     
     has_one_attached :image
     has_secure_password
@@ -20,7 +17,6 @@ class User < ApplicationRecord
 
     has_many :products ,:dependent => :destroy 
     has_many :categories,:dependent => :destroy
-    has_many :employees
     has_many :histories
     has_many :posts,:dependent => :destroy
     has_many :comments,:dependent => :destroy

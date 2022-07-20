@@ -21,7 +21,9 @@
    <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Profile</a>
     <ul class="dropdown-menu">
+     <%if current_user.omniauth==nil%>
       <li><%= link_to "Profile", edit_user_path(current_user) %></li>
+      <%end%>
       <li><%=link_to "Logout", logout_path, method: :delete %></li>
     </ul>
   </li>

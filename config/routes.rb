@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#omniauth'
   get "posts" => "posts#index"
   resources :users
-  resources :employees
+ 
 
   resources :users do
     get 'custom/products/new'=> "products#new_custom_product"
@@ -28,12 +28,11 @@ Rails.application.routes.draw do
   end
 
 
-
   get 'home'=> "main#home_page"
   get   'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-# resources :password_resets, only: [:new, :create, :edit, :update]
+
  get "password/reset" => "password_resets#new"
  post "password/reset" => "password_resets#create"
  get "password/reset/edit" => "password_resets#edit"

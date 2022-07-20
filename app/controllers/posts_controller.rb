@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+    before_action :is_signed_in?
     def index
         @post= Post.all.order('created_at DESC')
     end

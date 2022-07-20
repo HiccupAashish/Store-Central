@@ -1,5 +1,5 @@
 class HistoriesController < ApplicationController
-
+    before_action :is_signed_in?
     def index
         @history= History.all
     end

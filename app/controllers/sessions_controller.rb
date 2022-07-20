@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       # raise params.inspect
       @user = User.find_or_create_by(email: auth['info']['email']) do |u|
         u.name = auth['info']['name']
-        
+        u.omniauth =true
         u.password = auth['uid']
       end
     # raise @user.inspect

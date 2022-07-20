@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_20_015716) do
+ActiveRecord::Schema.define(version: 2022_07_20_125611) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 2022_07_20_015716) do
     t.text "image"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
+    t.boolean "omniauth"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

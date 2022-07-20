@@ -11,8 +11,8 @@ class UsersController < ApplicationController
     end
 
     def create
-     @user = User.new(user_params)  
-        if @user.save
+     @user = User.create(user_params)  
+        if @user
   
             redirect_to controller: :sessions ,action: :new
         else
