@@ -12,8 +12,8 @@ class UsersController < ApplicationController
 
     def create
      @user = User.create(user_params)  
-        if @user
-  
+        if @user.save
+            # raise @user.inspect
             redirect_to controller: :sessions ,action: :new
         else
           render 'new'
@@ -41,6 +41,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit([:name, :password, :password_confirmation, :image])
+        params.require(:user).permit([:name, :password, :password_confirmation, :image, :email])
     end
 end

@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2023_05_08_184638) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -35,7 +38,7 @@ ActiveRecord::Schema.define(version: 2023_05_08_184638) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.integer "blob_id", null: false
+    t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -44,8 +47,8 @@ ActiveRecord::Schema.define(version: 2023_05_08_184638) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
-    t.integer "product_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
     t.string "status"
     t.integer "price"
     t.integer "quantity"
@@ -58,16 +61,16 @@ ActiveRecord::Schema.define(version: 2023_05_08_184638) do
     t.integer "total_product"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
-    t.integer "post_id", null: false
+    t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -87,7 +90,7 @@ ActiveRecord::Schema.define(version: 2023_05_08_184638) do
 
   create_table "histories", force: :cascade do |t|
     t.integer "amount"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "gross_profit"
@@ -99,7 +102,7 @@ ActiveRecord::Schema.define(version: 2023_05_08_184638) do
 
   create_table "posts", force: :cascade do |t|
     t.text "title"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "image"
@@ -107,8 +110,8 @@ ActiveRecord::Schema.define(version: 2023_05_08_184638) do
   end
 
   create_table "product_categories", force: :cascade do |t|
-    t.integer "product_id", null: false
-    t.integer "category_id", null: false
+    t.bigint "product_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_product_categories_on_category_id"
@@ -122,7 +125,7 @@ ActiveRecord::Schema.define(version: 2023_05_08_184638) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "quantity"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.integer "brought_price"
     t.integer "profit"
     t.boolean "custom"
