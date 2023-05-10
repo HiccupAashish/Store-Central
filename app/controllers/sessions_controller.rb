@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
             logged_in (user)
             redirect_to user_home_path(current_user)
         else
+
           render 'new'
         end
     end

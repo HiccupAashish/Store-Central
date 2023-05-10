@@ -1,12 +1,16 @@
-<h1> Cart </h1> 
+<h4>( Powered by @Store_Central )</h4> 
 
-<%= search_form_for @search, url: user_home_path(current_user) do |f| %>
+
+<%= search_form_for @search,class: "search_box", url: user_home_path(current_user) do |f| %>
  <div class="field">
-  <%= f.label :name_cont, "Name conatains" %>
+  <%= f.label :name_cont, "Name conatains: " %>
   <%= f.text_field :name_cont%>
  </div>
- <div class="action"> <%= f.submit "Search"%></div>
+ <div class="action">
+ 
+  <%= f.submit "Search" ,class: "bg-red-500 text-black font-bold py-2 px-4 rounded"%></div>
 <%end%>
+
 
 <% unless @products.nil?%>
 <% @products.each do |product|%>
@@ -16,7 +20,7 @@
 <%end%>
 
 <%end%>
-<%= render partial: "cart", locals: {cart: @cart}%>
+<%= render partial: "cart", locals: {cart: @cart} %>
 <%= render partial: "custom_products"%>
  
 

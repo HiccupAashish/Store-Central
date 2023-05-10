@@ -9,6 +9,10 @@ module SessionsHelper
     end
 
     def is_signed_in?
+      if current_user
       !current_user.nil?
+      # else
+      #   render :file => "public/500", :status => :unauthorized
+      end
     end
 end

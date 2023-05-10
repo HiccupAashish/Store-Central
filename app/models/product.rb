@@ -3,16 +3,19 @@ class Product < ApplicationRecord
     has_many :product_categories, :dependent => :destroy
     has_many :categories, through: :product_categories
     belongs_to :user, optional: true
-  
+    
+
     def categories=(attributes)
-        raise attributes.inspect
-        # user=User.find(attributes[:user_id])
-        # attributes[:name].each do |new_cat|  
-        attributes.each do |key,value| 
-            
-         cat= session[:user_id].categories.find_or_create_by(name: value[:name])
-         cat.products << self
+        # raise attributes.inspect
+        # raise attributes[:user_id].inspect nil/1 in check
+     if attributes[:user_id]==nil
+        attributes.each do |key,category| 
+            user=User.find(category[:user_id])   
+            cat= Category.find_or_create_by(name: category[:name])
+            user.categories << cat
+            cat.products << self
         end
+    end
     end
     
     def self.search(query)

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :carts
   resources :comments
   resources :histories
   resources :posts
@@ -15,7 +16,9 @@ Rails.application.routes.draw do
     get 'custom/products' => "products#custom_products"
     get 'home'=> "main#home_page"
     get 'cart' => "main#cart"
-    post 'add_to_cart/:id' => "main#add_to_cart"
+    
+    get 'out_of_stock'=> 'products#out_of_stock'
+    post 'add_to_cart/:id' => "carts#add_to_cart"
     delete 'remove_from_cart/:id' => "main#remove_from_cart"
     get 'checkout' => "histories#add_to_history"
     post 'checkout' => "histories#add_to_history"
@@ -24,7 +27,9 @@ Rails.application.routes.draw do
     resources :comments
     resources :categories
     resources :employees
-    resources :histories
+    resources :histories do
+      get 'details'=> 'history#details'
+    end
   end
 
 

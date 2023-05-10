@@ -1,11 +1,41 @@
 .navbar{
-    background-color: #a8dadc;
+    background-color: white;
+    height:100vh;
+    width:20%;
+    color: red;
+    background-color: #F6F6F6;
+    display: flex;
+    flex-direction: column;
+   .logo-img{
+    margin: 0;
+    padding: 0;
+         width: 80%;
+         height: 4.5em;
+        
+   }
 }
-.content-list{
-    margin-top: 2em;
+.offcanvas-body{
+    
+    background-color: #F6F6F6;
+    width: 100%;
+    color: red;
+    
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
     text-align: center;
     height: 3em;
-    &:hover{
-        background-color:  #ffcdb2;
+    width: 100%;
+    color: black;
+    .link{
+        text-decoration: none;
+        font-weight: bold;
     }
+    &:hover{
+        background-color:  red;
+    }
+   
 }

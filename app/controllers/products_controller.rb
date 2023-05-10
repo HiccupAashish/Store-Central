@@ -17,6 +17,7 @@ before_action :is_signed_in?
       profit=((@product.price).to_i) - ((@product.brought_price).to_i)
       @product.profit = profit
       if @product.save
+        
       redirect_to user_products_path(current_user)
       else
         render 'new'
@@ -59,11 +60,18 @@ before_action :is_signed_in?
       @products=@search.result
   end
 
+  def out_of_stock
+    #  current_user.categories.each do |cat|
+    #   if cat.products==nil
+    #     @category=
+    #  end
+  end
+
 
     private
 
     def product_entry
-      # raise params.inspect
+     
         params.require(:product).permit([:user_id,:name,:brought_price, :quantity,:price,:custom, category_ids:[], :categories => [ :user_id, :name] ])
     end
  

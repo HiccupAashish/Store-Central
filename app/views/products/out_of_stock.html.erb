@@ -1,0 +1,5 @@
+ <% current_user.products.each do |product|%>
+    <%  if product.quantity<2 %>
+        <%=product.name%>
+        <%end%>
+    <% end%>

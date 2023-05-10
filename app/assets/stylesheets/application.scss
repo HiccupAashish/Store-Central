@@ -1,3 +1,11 @@
+
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+
+// @import "external";
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,3 +21,22 @@
  *= require_tree .
  *= require_self
  */
+ ::-webkit-scrollbar {
+    display: none;
+  }
+.whole_body{
+  background-color: white;
+    color: white;
+   display: flex;
+   flex-direction: row;
+
+}
+.Content{
+    display: flex;
+    flex-direction: column;
+    // overflow-y: scroll;
+    
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+}

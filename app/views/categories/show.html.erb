@@ -1,17 +1,19 @@
-<%= render partial: "categories_navbar"%>
+<%= render partial: "categories_navbar", locals:{category: @category}%>
 
  <table class="table table-success table-striped">
      <tr> 
-     <th> </th>
+     
      <th> Products </th>
      <th> Quantity </th>
      </tr>
- <% @category.products.each_with_index do |cat,index|%>
+ <% @cat.products.each do |cat|%>
+ <%if cat.user_id== current_user.id%>
     <tr>
-    <td> <%=index+1%></td>
+  
     <td><%=link_to cat.name, user_product_path(cat.user_id, cat.id)%></td>
     <td> <%= cat.quantity%> </td>
     </tr>
+  <%end%>
   <%end%>
   </table>
 </ul>

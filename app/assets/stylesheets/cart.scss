@@ -1,0 +1,11 @@
+.table-scrollable {
+    height: 300px; /* set the height to your desired value */
+    overflow-y: scroll;
+  }
+    .table-scrollable::-webkit-scrollbar {
+        display: none;
+    }
+      
+table{
+    max-height: 500px;
+}

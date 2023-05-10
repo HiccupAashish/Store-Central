@@ -1,55 +1,115 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-body{
-    background-color: #8e9aaf;
-}.post_form{
-    width:50%;
-    height: 20em;
-    background-color: #83c5be;
-    color: black;
+.post_form{
+    display: flex;
+    float: left;
+    justify-content: space-between;
+    flex-direction: column;
     margin-top: 5em;
-    
-    margin-left: 3em;
-    border: none;
-    border-radius: 3em;
-    text-align: justify;
+    .post_title_box{
+        overflow-wrap: break-word;
+      width: 30em;
+      height:5em;
+    }
+    .post_image_box{
+        margin-top: 2em;
+    }
+   
 }
 a{
     color: black;
 }
-.post_box{
-    margin-top: 5em;
-    background-color: #83c5be   ;
-    // margin-top: 1em;
-    padding-top: 5px;
-    padding-left: 20px;
-    flex-wrap: wrap;
-    overflow: hidden;
-    .btn-group{
-        float: top;
-        padding-right: 7px;
-        background-color: none;
-        color: black;
+// .post_box{
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     padding-top: 2em;
+//     background-color: #83c5be ;
+//     // margin-top: 5em;
+//     // background-color: #83c5be   ;
+//     // margin-top: 2em;
+//     // padding-top: 5px;
+//     // padding-left: 20px;
+//     // min-height: 20em;
+//     // max-height: 40em;
+//     // // flex-wrap: wrap;
+//     // overflow: hidden;
+//     // .post_title{
+//     //     float: left;
+//     // }
+//     img{
+//         // padding-top: 3em;
+//         // float:left;
+//         height: 15em;
+//         margin-left: 15%;
+//         margin-right: 20%;
+//     }
+//     .btn-group{
+//         float: right;
+//         padding-right: 7px;
+//         background-color: none;
+//         color: black;
+//     }
+//     .comment_box{
+   
+//       margin-top:15em;
+//         border-radius: 1em;
+//         padding-left: 10px;
+//         background-color: #f9dcc4;
+//         width:80%;
+//         text-align: left;
+//     }
+// }
+// .menu{
+//     float: right;
+// }
+// .btn-secondary{
+//     float: right;
+//     background-color:  transparent;
+//     border: none;
+//     &:hover {
+//         background-color:  transparent;
+//     }
+// }
+.post_index{
+    display: flex;
+    flex-direction: column;
+    float: left;
+    padding-top: 2rem;
+    justify-content: space-between;
+    
+    .post_box{
+            margin: 5em;
+            display: flex;
+            flex-direction: column;
+            float: left;
+            object-fit: cover;
+            padding-top: 1em;
+            background-color: #83c5be ;
+            width: 100%;
+            min-height:30em;
     }
-    .comment_box{
-        margin-top: 5px;
-        border-radius: 1em;
-        padding-left: 10px;
-        background-color: #f9dcc4;
-        width:80%;
-        float: bottom;
-        text-align: left;
-    }
+    img{
+        padding-top: 1em;
+        padding-left: 2em;
+        width: 80%;
+        height: 20em;
+     }
+     .menu{
+        padding-top: 1em;
+        padding-left: 1em;
+     }
+     .comment_box{
+        margin-top:5px;
+        background-color: #cad2c5;
+        display: flex;
+        padding-top: 1em;
+     }
 }
-.menu{
-    float: right;
-}
-.btn-secondary{
-    float: right;
-    background-color:  transparent;
-    border: none;
-    &:hover {
-        background-color:  transparent;
+.show_post{
+    img{
+        height:20em;
+        width: 30em;
     }
 }

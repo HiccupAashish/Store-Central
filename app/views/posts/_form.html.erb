@@ -1,8 +1,11 @@
-<%= form_for @post do|form|%>
-        <strong> Post: </strong>
-        <%=form.text_field :post, class:"post_form"%>
+<%= form_for @post, html: {class: 'post_form'} do|form|%>
+        <%=form.label :title%>
+        <%=form.text_field :title, class:"post_title_box"%>
         <%= form.hidden_field :user_id, :value => current_user.id %>
+
+        <%= form.label :image , class:"post_image_box"%>
+        <%= form.file_field :image%>
         </br>
         </br>
-        <%= form.submit%>
+        <%= form.submit class:"btn btn-danger"%>
     <%end%>

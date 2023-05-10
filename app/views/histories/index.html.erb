@@ -3,16 +3,25 @@
     <td> Date </td>
     <td> Total Price </td>
     <td> No.of Item Sold </td>
+    <td> Item Sold </td>
     <td> Profit </td>   
  </thead>
     <% @history.each do |history|%>
+    
      <tr class="table-success">
-       <td> <%= history.updated_at.strftime('%a, %d %b %Y %H:%M:%S')%> </td>
+     <%# <%= link_to user_history_path(current_user,history.id ) do %> 
+       <td> <%=link_to history.updated_at.strftime('%a, %d %b %Y %H:%M:%S') , user_history_path(current_user,history.id )%> </td>
        <td> <%= number_to_currency(history.amount)%> </td>
        <td> <%= history.item_sold%> </td>
+         <td>
+         <%  ((history.product).split(',')).each do |p|%>
+         <%=  @product.find((p).to_i).name%> 
+         <%end%>
+       </td>
        <td> <%= number_to_currency(history.gross_profit)%> </td>
        <td> <%= link_to "Refund", user_history_path(current_user.id, history.id), method: :delete%>
+         <%# <%end%> 
      </tr>
-     
+   
     <%end%>
 </table>

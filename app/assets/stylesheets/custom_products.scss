@@ -1,0 +1,38 @@
+.custom_products_page{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid black;
+}
+
+.custom_items{
+    width:80%;
+    display: flex;
+   
+    flex-wrap: wrap;
+    justify-content: space-between;
+   
+}
+.custom_products{
+    margin-left: 10%;
+    margin-top: 3em;
+    background-color: #A49E8D;
+    padding: 30px;
+    
+    max-height:6em;
+    max-width:7em;
+    
+    text-align: center;
+    margin-left: 2em;
+    justify-content: space-between;
+}
+.add_custom_products{
+
+  margin: 3em;
+  width: 5em;
+  border: 1px solid gray;
+  padding: 10px;
+  text-align: center;
+}

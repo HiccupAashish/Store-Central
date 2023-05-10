@@ -11,19 +11,20 @@ class ApplicationController < ActionController::Base
     
     def total_price
         total_price = current_cart.reduce(0) do | sum,product|
-             sum + (current_user.products.find(product.to_i)).price
+            # raise cart.inspect
+            # # raise sum.inspect
+            # raise product['name'].inspect
+             sum + ((current_user.products.find(product['product_id'].to_i)).price)* product['quantity'].to_i
+            #  sum + (current_user.products.find(current_cart['product_id'].to_i)).price
         end
     end
 
     def total_profit
         total_profit = current_cart.reduce(0) do | sum,product|
-             sum + (current_user.products.find(product.to_i)).profit
+             sum + ((current_user.products.find(product['product_id'].to_i)).profit)* product['quantity'].to_i
         end
     end
 
-    def profit_revenue
-
-    end
     
 
 end

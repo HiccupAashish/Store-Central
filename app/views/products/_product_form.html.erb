@@ -19,6 +19,8 @@
      </br>
      </br>
   <%= form.hidden_field :custom, :value => product.custom %>
+
+  
    
   <strong> Barcode: </strong>
   <%= form.text_field :barcode %>
@@ -26,14 +28,16 @@
      </br>
    <strong> Category: </strong>
    <%= form.collection_check_boxes :category_ids, current_user.categories.order(:name), :id, :name%>
+   
     <button id="addCategory"> Create Category </button>
+
     <div class="nested_form">
       <%= form.fields_for :categories do |cat| %>
-        <%= cat.hidden_field :user_id, :value => current_user.id %> 
+        <%= cat.hidden_field :user_id, :value => current_user.id, class:"user_cat", id:"user_id" %> 
       <%end%> 
     </div>
        </br>
-  <%= form.submit %>
+  <%= form.submit class:"btn btn-danger" %>
 <% end %>
 </br>
 </br>

@@ -1,0 +1,33 @@
+<%puts @history.id%>
+<div class="overflow-x-auto ">
+  <table class="table table-borderless">
+    <thead class="table-warning">
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Profit</th>
+      </tr>
+    </thead>
+    <tbody class="table-scrollable">
+    <%i=0%>
+      <% while i< @history.product.split(',').length do %>
+        <tr style="height: 10%;" class="table-secondary">
+           <td><%=(@product.find((@history.product.split(','))[i].to_i)).name%></td>
+           <td><%=(@product.find((@history.product.split(','))[i].to_i)).price%></td>
+          <td><%=(@history.quantity.split(','))[i]%></td>
+          <td></td>
+        <%i+=1%>
+        </tr>
+      <%end%>
+    </tbody>
+    <tfoot>
+      <tr class="table-danger"> 
+        <td>Total:</td>
+        <td></td>
+        <td> </td>
+        <td><%= @history.gross_profit%></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
