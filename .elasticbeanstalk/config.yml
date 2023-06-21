@@ -2,6 +2,10 @@ branch-defaults:
   main:
     environment: staging-test
     group_suffix: null
+environment-defaults:
+  staging-test:
+    branch: main
+    repository: codecommit-origin
 global:
   application_name: rails-project
   branch: null
