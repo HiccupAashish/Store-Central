@@ -4,4 +4,3 @@ document.addEventListener('DOMContentLoaded', () => {
   const catbtn = document.querySelector("#addCategory");
   catbtn.addEventListener("click", addCategory);
 });    
-vfdvdfv

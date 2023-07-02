@@ -10,7 +10,7 @@
      <%# <%if current_user.omniauth==nil%> 
       <li><%= link_to "Profile", edit_user_path(current_user) %></li>
       <%# <%end%> 
-      <li><%=link_to "Logout", logout_path, method: :delete %></li>
+      <li><%=button_to "Logout", logout_path, method: :delete %></li>
     </ul>
   </li>
 </ul>
