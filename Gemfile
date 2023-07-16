@@ -23,8 +23,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'mail'
-gem 'omniauth-rails_csrf_protection'
-gem 'omniauth'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
+gem 'omniauth', '>= 2.1'
+
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 gem 'omniauth-facebook'

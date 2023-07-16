@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  protect_from_forgery with: :exception
+  
     layout "sessions"
 
     def new

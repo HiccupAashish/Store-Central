@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :categories
   resources :products
   root "main#index"
+
+
   get '/auth/:provider/callback' => 'sessions#omniauth'
   get "posts" => "posts#index"
   resources :users

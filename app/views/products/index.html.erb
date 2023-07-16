@@ -1,44 +1,52 @@
-<%= render "products_navbar"%>
-<%= search_form_for @search do |f|%>
- <div class="field">
-  <%= f.label :name_cont, "Name conatains" %>
-  <%= f.text_field :name_cont%>
- </div>
- <div class="action"> <%= f.submit "Search"%> </div>
-<%end%> 
+<%= render "products_navbar" %>
+
+<%= search_form_for @search do |f| %>
+  <div class="field">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont %>
+  </div>
+  <div class="action">
+    <%= f.submit "Search" %>
+  </div>
+<% end %>
 
 <table class="table table-striped-columns">
-    <thead>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Barcode</th>
+      <th>Categories</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each_with_index do |product, index| %>
+      <% if product.custom == false %>
         <tr>
-           <th>  </th> 
-           <th> Name </th> 
-           <th> Price </th> 
-           <th> Quantity </th> 
-           <th> Barcode </th>
-           <th> Categories </th>
+          <td><%= index+1 %></td>
+          <td><%= link_to product.name, user_product_path(product.user_id, product.id) %></td>
+          <td><%= number_to_currency(product.price) %></td>
+          <td><%= product.quantity %></td>
+          <td><%= product.barcode %></td>
+          <td>
+            <%= product.categories.map { |cat| cat.name }.join(", ") %>
+          </td>
+          <td>
+            <%= button_to "Delete", user_product_path(current_user.id, product.id), method: :delete,
+              data: { confirm: "Are you sure you want to permanently delete it?" } %>
+          </td>
+          <td>
+            <%= link_to "Edit", edit_user_product_path(current_user.id, product.id) %>
+          </td>
         </tr>
-    </thead>
-    <tbody>
-        <% @products.each_with_index  do |product,index|%>
-          <% if product.custom == false %>
-            <tr>
-            <td> <%= index+1 %> </td>
-            <td> <%= link_to product.name, user_product_path(product.user_id, product.id) %> </td>
-            <td> <%= number_to_currency(product.price)%></td>
-            <td> <%=  product.quantity%> </td>
-            <td> <%= product.barcode%></td>
-            <td> 
-                <%= product.categories.map {|cat| cat.name}.join(", ")%>
-            </td> 
-            <td> <%= link_to "Delete", user_product_path(current_user.id, product.id), method: :delete, 
-            data: {confirm: "Are you sure you want to permanantly delete it ?"} %>
-            </td>  
-            <td> <%= link_to "Edit", edit_user_product_path(current_user.id, product.id) %></td>  
-            </tr>
-          <% end %>
-        <% end%>
-
-</tbody>
+      <% end %>
+    <% end %>
+  </tbody>
 </table>
-</br>
-<%= link_to "Add Product", new_user_product_path(current_user.id), class:"btn btn-danger" %>
+
+<br>
+<%= link_to "Add Product", new_user_product_path(current_user.id), class: "btn btn-danger" %>
+
+<%= javascript_pack_tag 'product', 'data-turbolinks-track': 'reload' %>
