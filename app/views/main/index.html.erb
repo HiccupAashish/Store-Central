@@ -2,6 +2,10 @@
   <div class="msg_box">
     <h1> Welcome to StoreCentral </h1>
     <h3> Keep Track of your store and stay connected</h3>
-    <%= link_to "Get Started", login_path, class: "btn btn-danger"%>
+    <% if @current_user %>
+  <%= link_to "Go to Dashboard", "/users/#{@current_user.id}/home", class: "btn btn-danger" %>
+<% else %>
+  <%= link_to "Get Started", login_path, class: "btn btn-danger" %>
+<% end %>
   </div>
 </div>

@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 gem 'pg'
+gem 'sendgrid-ruby'
 gem 'shrine', '~> 3.3'
 gem 'image_processing', '~> 1.12', '>= 1.12.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'

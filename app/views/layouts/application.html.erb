@@ -22,7 +22,11 @@
 
   <body>
   <div class="whole_body" style={background-color}>
+  <% unless request.host == 'localhost' && request.port == 3000 && request.path=="/"%>
    <%= render "layouts/navbar" if is_signed_in?  %>
+<% end %>
+
+  
    
    <div class="Content" >
    <% flash.each do |message_type, message| %>
@@ -33,7 +37,11 @@
 
  
       <% end %>
-      <%= render "layouts/profile" if is_signed_in? %>
+      <% unless request.host == 'localhost' && request.port == 3000 && request.path=="/" %>
+  <%= render "layouts/profile" if is_signed_in? %>
+<% end %>
+
+      
     <%= yield  %>
       </div>
      

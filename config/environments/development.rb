@@ -78,13 +78,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'localhost:3000',
-    user_name:            'shahaashish22@gmail.com',
-    password:             'cljeizdxpygxtpiz',
-    authentication:       'plain',
-    enable_starttls_auto: true,
-   }
+    user_name: 'apikey',
+    password: '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',
+    domain: 'localhost:3000',
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
+}
   
 end

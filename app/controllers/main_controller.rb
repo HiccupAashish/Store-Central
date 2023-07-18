@@ -1,6 +1,7 @@
 class MainController < ApplicationController
     layout "application"
         def index
+            @current_user=current_user
             # @products=current_user.products.all
         end
 
